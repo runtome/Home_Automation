@@ -1,0 +1,7 @@
+# mqtt/passwd is generated (not hand-written) via ../scripts/gen-mqtt-password.sh,
+# which runs `mosquitto_passwd -b -c` to produce a properly hashed credentials file.
+# The real mqtt/passwd is gitignored since it contains a password hash.
+#
+# Run:
+#   cp .env.example .env   # then edit MQTT_USERNAME/MQTT_PASSWORD if desired
+#   ./scripts/gen-mqtt-password.sh
