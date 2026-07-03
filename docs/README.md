@@ -14,6 +14,9 @@ See specification.md section 2 for the full diagram. In this pass:
   recent activity feed. Updates in real time via WebSocket, patched into the React Query cache.
 - **mqtt/** — Mosquitto broker config (username/password auth).
 - **nginx/** — reverse proxy: `/api/*` → backend, `/ws/*` → backend (websocket upgrade), `/` → frontend.
+- **firmware/esp8266/** — ESP8266 relay device firmware (C++17/Arduino): non-blocking
+  Wi-Fi/MQTT connection state machine with bounded exponential backoff, MQTT Last Will,
+  30s heartbeat, and relay command handling. See firmware/README.md for details.
 
 ## MQTT topics (spec section 7)
 
@@ -27,5 +30,6 @@ home/{device_id}/info       {"firmware", "ip_address", "mac_address"}
 
 ## Deferred to future passes
 
-Automation scheduling engine, ESP8266 firmware, OTA updates, sensors, AI automation, mobile
-app, HTTPS/Let's Encrypt, full CSRF/rate-limiting middleware, multi-user/multi-home support.
+Automation scheduling engine, OTA firmware updates, sensors, AI automation, mobile app,
+HTTPS/Let's Encrypt, full CSRF/rate-limiting middleware, multi-user/multi-home support,
+captive-portal Wi-Fi provisioning.

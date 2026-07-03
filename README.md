@@ -4,10 +4,12 @@ A scalable IoT home automation platform for controlling ESP8266 relay devices th
 centralized cloud server. See [specification.md](specification.md) for the full SRS and
 [docs/README.md](docs/README.md) for architecture notes.
 
-This build pass implements the **backend foundation + a minimal frontend dashboard**:
-JWT auth, device management, relay control, an MQTT service layer, live WebSocket updates,
-activity logs, and a Next.js dashboard. Automation scheduling, ESP8266 firmware, and other
-items in specification.md section 13 are deferred to future passes (see docs/README.md).
+This build pass implements the **backend foundation + a minimal frontend dashboard +
+ESP8266 firmware**: JWT auth, device management, relay control, an MQTT service layer,
+live WebSocket updates, activity logs, a Next.js dashboard, and real device firmware
+(`firmware/esp8266/`, see firmware/README.md to flash a physical device). Automation
+scheduling and other items in specification.md section 13 are deferred to future passes
+(see docs/README.md).
 
 ## Quick start (Docker)
 
@@ -33,6 +35,8 @@ Simulate a fake ESP8266 device (no hardware required):
 pip install paho-mqtt
 MQTT_USERNAME=ha_backend MQTT_PASSWORD=<from .env> python scripts/simulate_device.py light001
 ```
+
+To flash a real ESP8266, see [firmware/README.md](firmware/README.md).
 
 ## Local development
 
